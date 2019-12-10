@@ -23,10 +23,11 @@ class App extends Component{
         this.state = INITIAL_STATE;
     }
 
+    // propriedades,  dados que passado pela tag, atribuindo ou controlado determinado estado de um componente.
   render() {
     return(
         <div className={'App'}>
-          <VideoList  {...INITIAL_STATE['videos']} />               // propriedades,  dados que passado pela tag, atribuindo ou controlado determinado estado de um componente.
+          <VideoList  {...INITIAL_STATE['videos']} />
           <VideoPlayer  {...INITIAL_STATE['selectedVideo']}/>
           <VideoCinema  isActivated={false}/>
 
