@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-function VideoList() {
+function VideoList(props) {
     return(
         <ul className={'video-list'}>
             <li className={'video'}>
