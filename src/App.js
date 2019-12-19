@@ -24,10 +24,7 @@ class App extends Component{
     async componentDidMount() {
         const videos =  await VideoService.list();
         this.setState({videos});
-        this.selectVideo(videos[0])
-        console.log(videos)
-        console.log('porrraaa', this.state.selectedVideo);
-        console.log('adasdas',this.state.videos);
+        this.selectVideo(videos[0]);
     }
 
     selectVideo (video){
@@ -39,14 +36,12 @@ class App extends Component{
 
 
     // propriedades,  dados que passado pela tag, atribuindo ou controlado determinado estado de um componente.
+    // utilizando o recurso spread no componente > VideoPlayer.
   render() {
 
     return(
         <div className={'App'}>
-          {/*<VideoList  {...INITIAL_STATE['videos']} />*/}
-          {/*<VideoPlayer  {...INITIAL_STATE['selectedVideo']}/>*/}
-          {/*<VideoCinema  isActivated={false}/>*/}
-          <VideoPlayer  video={this.state.selectedVideo} />
+          <VideoPlayer  {...this.state.selectedVideo} />
           <VideoList  videos={this.state.videos}/>
           <VideoCinema  isActivated={false}/>
 

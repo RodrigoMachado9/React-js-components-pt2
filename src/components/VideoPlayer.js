@@ -1,20 +1,16 @@
 import React, {Component} from "react";
 
 
-
-
 class VideoPlayer extends Component{
     render() {
-        const video = this.props;
-        {console.log('heeee carai', video)}
         return(
             <div className={'video-player'}>
                 <video
 
-                    src={video.url}
+                    src={this.props.url}
                     controls autoPlay loop
                 />
-                <button>[]</button>
+                <button>X</button>
             </div>
 
 
