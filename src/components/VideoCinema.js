@@ -7,7 +7,9 @@ function VideoCinema(props){
     };
 
     return(
-        <div className="video-cinema" style={ style }/>
+        <div className="video-cinema" style={ style }>
+            {props.children}
+        </div>
     );
 }
 

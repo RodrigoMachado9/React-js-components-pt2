@@ -18,14 +18,10 @@ function VideoList(props) {
                         <img src={video.img} alt={video.name} />
                         <div>{video.name}</div>
                     </li>
-
                 ))
-
             }
         </ul>
-
     )
-
 }
 
 

@@ -3,6 +3,7 @@ import './App.css';
 import VideoList from "./components/VideoList";
 import VideoPlayer from "./components/VideoPlayer";
 import VideoCinema from "./components/VideoCinema";
+import VideoInline from "./components/VideoInline";
 import {VideoService} from "./services/VideoService";
 import {Channel} from "./services/EventService";
 
@@ -18,6 +19,8 @@ class App extends Component{
         super(props);
         this.selectVideo = this.selectVideo.bind(this);
         this.state = INITIAL_STATE;
+        this.inlineVideo = React.createRef();
+        this.cinemaVideo = React.createRef();
     }
 
     // >>>>>                                    Esse componente é executado, logo quando o component é exibido na tela.
@@ -51,8 +54,13 @@ class App extends Component{
     return(
         <div className={'App'}>
           <VideoPlayer  {...this.state.selectedVideo} />
+            <VideoInline>
+                <div ref={this.inlineVideo}> </div>
+            </VideoInline>
           <VideoList  videos={this.state.videos}/>
-          <VideoCinema  isActivated={false}/>
+            <VideoCinema  isActivated={false}>
+                <div ref={this.cinemaVideo}> </div>
+            </VideoCinema>
 
         </div>
 

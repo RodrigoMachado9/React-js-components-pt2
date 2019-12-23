@@ -1,11 +1,13 @@
 import React from "react";
 
 
-function VideoCinema(){
+function VideoInline(props){
 
     return(
-        <div className={'video-inline'}/>
+        <div className={'video-inline'}>
+            {props.children}
+        </div>
     );
 }
 
-export default VideoCinema;
+export default VideoInline;
