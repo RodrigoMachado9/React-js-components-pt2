@@ -6,7 +6,7 @@ function VideoList(props) {
     const videos = props.videos || []; // caso não exista objeto, então array vazio.
 
     function handleClick(video){
-        Channel.emit('video:select', video)
+        Channel.emit('video:select', video) // emite determinado evento
     }
 
 

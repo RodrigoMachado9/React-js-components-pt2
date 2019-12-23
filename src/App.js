@@ -29,10 +29,10 @@ class App extends Component{
         const videos =  await VideoService.list();
         this.setState({videos});
         // this.selectVideo(videos[2]);
-        Channel.on('video:select', this.selectVideo)
+        Channel.on('video:select', this.selectVideo)    // cadastra determinado evento
     }
 
-    selectVideo (video){
+        selectVideo (video){
         this.setState({
             selectedVideo: video
         })
