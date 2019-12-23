@@ -4,6 +4,8 @@ import VideoList from "./components/VideoList";
 import VideoPlayer from "./components/VideoPlayer";
 import VideoCinema from "./components/VideoCinema";
 import {VideoService} from "./services/VideoService";
+import {Channel} from "./services/EventService";
+
 
 const INITIAL_STATE = {
     videos: [],
@@ -26,7 +28,8 @@ class App extends Component{
     async componentDidMount() {
         const videos =  await VideoService.list();
         this.setState({videos});
-        this.selectVideo(videos[2]);
+        // this.selectVideo(videos[2]);
+        Channel.on('video:select', this.selectVideo)
     }
 
     selectVideo (video){
@@ -34,6 +37,10 @@ class App extends Component{
             selectedVideo: video
         })
 
+    }
+
+    componentWillUnmount() {
+        Channel.removeListener('video:select', this.selectVideo)
     }
 
 
